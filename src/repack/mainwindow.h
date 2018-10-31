@@ -14,7 +14,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+public slots:
+    void browseResourceDirectory();
+    void browseProjectDirectory();
+    void browseOutputDirectory();
+    void browseDataDirectory();
+    void browseConfigFile();
+    void browseStepFile();
 private:
     Ui::MainWindow *ui;
 };
