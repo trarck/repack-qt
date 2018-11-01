@@ -6,127 +6,326 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>357</height>
+    <width>842</width>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Repack</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="gridLayoutWidget">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>431</width>
-      <height>208</height>
+      <x>70</x>
+      <y>20</y>
+      <width>691</width>
+      <height>261</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="4" column="0">
-      <widget class="QLabel" name="configFileLabel">
-       <property name="text">
-        <string>配置文件:</string>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="normalTab">
+     <attribute name="title">
+      <string>通用</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>10</y>
+        <width>421</width>
+        <height>208</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="normalContent">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
        </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="dataDirectoryLabel">
-       <property name="text">
-        <string>数据目录:</string>
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QPushButton" name="odBrowseButton">
-       <property name="text">
-        <string>Browser...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="outputDirectoryEdit"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="projectDirectoryLabel">
-       <property name="text">
-        <string>母工程目录:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="2">
-      <widget class="QPushButton" name="cfBrowseButton">
-       <property name="text">
-        <string>Browser...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="outputDirectoryLabel">
-       <property name="text">
-        <string>输出目录:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="projectDirectoryEdit"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QPushButton" name="rdBrowseButton">
-       <property name="text">
-        <string>Browser...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="resourceDirectoryEdit"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="resourceDirectoryLabel">
-       <property name="text">
-        <string>资源目录:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="dataDirectoryEdit"/>
-     </item>
-     <item row="3" column="2">
-      <widget class="QPushButton" name="ddBrowseButton">
-       <property name="text">
-        <string>Browser...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QPushButton" name="pdBrowseButton">
-       <property name="text">
-        <string>Browser...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="configFileEdit"/>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="stepFileLabel">
-       <property name="text">
-        <string>步骤文件:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="stepFileEdit"/>
-     </item>
-     <item row="5" column="2">
-      <widget class="QPushButton" name="sfBrowseButton">
-       <property name="text">
-        <string>Browser...</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+       <item row="4" column="2">
+        <widget class="QLineEdit" name="configFileEdit"/>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="stepFileLabel">
+         <property name="text">
+          <string>步骤文件:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLineEdit" name="dataDirectoryEdit"/>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="ddBrowseButton">
+         <property name="text">
+          <string>Browser...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="odBrowseButton">
+         <property name="text">
+          <string>Browser...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="pdBrowseButton">
+         <property name="text">
+          <string>Browser...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="outputDirectoryLabel">
+         <property name="text">
+          <string>输出目录:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="projectDirectoryLabel">
+         <property name="text">
+          <string>母工程目录:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLineEdit" name="stepFileEdit"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLabel" name="configFileLabel">
+         <property name="text">
+          <string>配置文件:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="projectDirectoryEdit"/>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="cfBrowseButton">
+         <property name="text">
+          <string>Browser...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="dataDirectoryLabel">
+         <property name="text">
+          <string>数据目录:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="3">
+        <widget class="QPushButton" name="sfBrowseButton">
+         <property name="text">
+          <string>Browser...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLineEdit" name="outputDirectoryEdit"/>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="rdBrowseButton">
+         <property name="text">
+          <string>Browser...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="resourceDirectoryLabel">
+         <property name="text">
+          <string>资源目录:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLineEdit" name="resourceDirectoryEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="projectTab">
+     <attribute name="title">
+      <string>项目</string>
+     </attribute>
+     <widget class="QGroupBox" name="projectGroup">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>241</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>project</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="QLabel" name="stepFileLabel_3">
+         <property name="text">
+          <string>路径密钥</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="projectNameLabel">
+         <property name="text">
+          <string>名称:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="resourceDirectoryEdit_3"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="stepFileEdit_3"/>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>复制工程</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="configFileEdit_5"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="configFileLabel_5">
+         <property name="text">
+          <string>xxtea key:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="configFileLabel_6">
+         <property name="text">
+          <string>xxtea sign:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="configFileEdit_6"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="projectGroup_2">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>10</y>
+        <width>230</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>xcode</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="5" column="0">
+        <widget class="QLabel" name="configFileLabel_7">
+         <property name="text">
+          <string>证书文件ID:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="outputDirectoryEdit_4"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="configFileLabel_8">
+         <property name="text">
+          <string>证书文件名:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="projectDirectoryLabel_4">
+         <property name="text">
+          <string>包名:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="stepFileEdit_4"/>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="stepFileLabel_4">
+         <property name="text">
+          <string>开发者组:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="dataDirectoryLabel_4">
+         <property name="text">
+          <string>签名账号:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="dataDirectoryEdit_4"/>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="configFileEdit_9"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="configFileLabel_9">
+         <property name="text">
+          <string>entitlements:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="configFileEdit_7"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="configFileEdit_8"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="projectDirectoryEdit_4"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="outputDirectoryLabel_4">
+         <property name="text">
+          <string>显示名：</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>180</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="createProjectButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>340</y>
+      <width>114</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>new project</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -134,31 +333,32 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>553</width>
+     <width>842</width>
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menumain">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>main</string>
+     <string>File</string>
     </property>
-    <addaction name="actionMain"/>
-    <addaction name="separator"/>
+    <addaction name="actionNewProject"/>
+    <addaction name="actionOpen"/>
    </widget>
-   <addaction name="menumain"/>
+   <addaction name="menuFile"/>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionMain">
    <property name="text">
     <string>Main</string>
+   </property>
+  </action>
+  <action name="actionNewProject">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
    </property>
   </action>
  </widget>

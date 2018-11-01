@@ -2,35 +2,55 @@
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QStandardPaths>
+#include "newprojectdialog.h"
+#include "actionmanager.h"
+#include "startwidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    m_ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    ActionManager::instance();
 
-    connect(ui->rdBrowseButton,&QPushButton::clicked,
-            this,&MainWindow::browseResourceDirectory);
+    m_ui->setupUi(this);
 
-    connect(ui->pdBrowseButton,&QPushButton::clicked,
-            this,&MainWindow::browseProjectDirectory);
+    ActionManager::registerAction(m_ui->actionNewProject, "file.new_project");
+    ActionManager::registerAction(m_ui->actionOpen, "file.open_project");
 
-    connect(ui->odBrowseButton,&QPushButton::clicked,
-            this,&MainWindow::browseOutputDirectory);
+//    connect(m_ui->rdBrowseButton,&QPushButton::clicked,
+//            this,&MainWindow::browseResourceDirectory);
 
-    connect(ui->ddBrowseButton,&QPushButton::clicked,
-            this,&MainWindow::browseDataDirectory);
+//    connect(m_ui->pdBrowseButton,&QPushButton::clicked,
+//            this,&MainWindow::browseProjectDirectory);
 
-    connect(ui->cfBrowseButton,&QPushButton::clicked,
-            this,&MainWindow::browseConfigFile);
+//    connect(m_ui->odBrowseButton,&QPushButton::clicked,
+//            this,&MainWindow::browseOutputDirectory);
 
-    connect(ui->sfBrowseButton,&QPushButton::clicked,
-            this,&MainWindow::browseStepFile);
+//    connect(m_ui->ddBrowseButton,&QPushButton::clicked,
+//            this,&MainWindow::browseDataDirectory);
+
+//    connect(m_ui->cfBrowseButton,&QPushButton::clicked,
+//            this,&MainWindow::browseConfigFile);
+
+//    connect(m_ui->sfBrowseButton,&QPushButton::clicked,
+//            this,&MainWindow::browseStepFile);
+
+//    connect(m_ui->createProjectButton,&QPushButton::clicked,
+//            this,&MainWindow::createNewProject);
+
+    StartWidget* startWidget=new StartWidget(this);
+    setCentralWidget(startWidget);
+
+    m_ui->actionNewProject->setShortcuts(QKeySequence::New);
+    m_ui->actionOpen->setShortcuts(QKeySequence::Open);
+
+    connect(m_ui->actionNewProject,&QAction::triggered, this,&MainWindow::createNewProject);
+    connect(m_ui->actionOpen,&QAction::triggered, this,&MainWindow::openProjectDialog);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete m_ui;
 }
 
 void MainWindow::browseResourceDirectory()
@@ -41,7 +61,7 @@ void MainWindow::browseResourceDirectory()
                             QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     if (!directoryName.isEmpty())
-        ui->resourceDirectoryEdit->setText(directoryName);
+        m_ui->resourceDirectoryEdit->setText(directoryName);
 }
 
 void MainWindow::browseProjectDirectory()
@@ -52,7 +72,7 @@ void MainWindow::browseProjectDirectory()
                             QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     if (!directoryName.isEmpty())
-        ui->projectDirectoryEdit->setText(directoryName);
+        m_ui->projectDirectoryEdit->setText(directoryName);
 }
 
 void MainWindow::browseOutputDirectory()
@@ -63,7 +83,7 @@ void MainWindow::browseOutputDirectory()
                             QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     if (!directoryName.isEmpty())
-        ui->outputDirectoryEdit->setText(directoryName);
+        m_ui->outputDirectoryEdit->setText(directoryName);
 }
 
 void MainWindow::browseDataDirectory()
@@ -74,7 +94,7 @@ void MainWindow::browseDataDirectory()
                             QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     if (!directoryName.isEmpty())
-        ui->dataDirectoryEdit->setText(directoryName);
+        m_ui->dataDirectoryEdit->setText(directoryName);
 }
 
 void MainWindow::browseConfigFile()
@@ -84,7 +104,7 @@ void MainWindow::browseConfigFile()
     QString fileName = QFileDialog::getOpenFileName(this, caption, dir);
 
     if (!fileName.isEmpty())
-        ui->configFileEdit->setText(fileName);
+        m_ui->configFileEdit->setText(fileName);
 }
 
 void MainWindow::browseStepFile()
@@ -94,5 +114,32 @@ void MainWindow::browseStepFile()
     QString fileName = QFileDialog::getOpenFileName(this, caption, dir);
 
     if (!fileName.isEmpty())
-        ui->stepFileEdit->setText(fileName);
+        m_ui->stepFileEdit->setText(fileName);
+}
+
+void MainWindow::createNewProject()
+{
+    qDebug("call crate new");
+    NewProjectDialog newProjectDialog(this);
+    if (newProjectDialog.exec() != QDialog::Accepted){
+        qDebug("cancel");
+    }else{
+        qDebug("ok");
+    }
+}
+
+void MainWindow::openProjectDialog()
+{
+    QString caption = tr("Select Config File");
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+    QString fileName = QFileDialog::getOpenFileName(this, caption, dir);
+
+    if (!fileName.isEmpty()){
+        openProject(fileName);
+    }
+}
+
+bool MainWindow::openProject(const QString &fileName)
+{
+    qDebug("Open project file %s",fileName.data());
 }

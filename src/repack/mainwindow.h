@@ -14,6 +14,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    bool openProject(const QString &fileName);
+
 public slots:
     void browseResourceDirectory();
     void browseProjectDirectory();
@@ -21,8 +24,11 @@ public slots:
     void browseDataDirectory();
     void browseConfigFile();
     void browseStepFile();
+
+    void createNewProject();
+    void openProjectDialog();
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *m_ui;
 };
 
 #endif // MAINWINDOW_H
