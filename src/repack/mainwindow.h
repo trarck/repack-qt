@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "projectinfo.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +28,9 @@ public slots:
 
     void createNewProject();
     void openProjectDialog();
+
+public:
+    ProjectInfo projectInfo;
 private:
     Ui::MainWindow *m_ui;
 };

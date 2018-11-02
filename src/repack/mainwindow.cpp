@@ -121,11 +121,7 @@ void MainWindow::createNewProject()
 {
     qDebug("call crate new");
     NewProjectDialog newProjectDialog(this);
-    if (newProjectDialog.exec() != QDialog::Accepted){
-        qDebug("cancel");
-    }else{
-        qDebug("ok");
-    }
+    newProjectDialog.createProject();
 }
 
 void MainWindow::openProjectDialog()

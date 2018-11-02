@@ -34,8 +34,8 @@
     <rect>
      <x>60</x>
      <y>20</y>
-     <width>421</width>
-     <height>208</height>
+     <width>411</width>
+     <height>211</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="normalContent">
@@ -48,27 +48,37 @@
     <item row="2" column="2">
      <widget class="QLineEdit" name="outputDirectoryEdit"/>
     </item>
-    <item row="0" column="3">
-     <widget class="QPushButton" name="rdBrowseButton">
+    <item row="1" column="1">
+     <widget class="QLabel" name="resourceDirectoryLabel">
+      <property name="text">
+       <string>资源目录:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="resourceDirectoryEdit"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="projectDirectoryEdit"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="odBrowseButton">
       <property name="text">
        <string>Browser...</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QLineEdit" name="projectDirectoryEdit"/>
-    </item>
-    <item row="1" column="3">
+    <item row="0" column="3">
      <widget class="QPushButton" name="pdBrowseButton">
       <property name="text">
        <string>Browser...</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="projectDirectoryLabel">
+    <item row="1" column="3">
+     <widget class="QPushButton" name="rdBrowseButton">
       <property name="text">
-       <string>母工程目录:</string>
+       <string>Browser...</string>
       </property>
      </widget>
     </item>
@@ -79,30 +89,10 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="2">
-     <widget class="QLineEdit" name="dataDirectoryEdit"/>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="resourceDirectoryEdit"/>
-    </item>
     <item row="0" column="1">
-     <widget class="QLabel" name="resourceDirectoryLabel">
+     <widget class="QLabel" name="projectDirectoryLabel">
       <property name="text">
-       <string>资源目录:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="3">
-     <widget class="QPushButton" name="ddBrowseButton">
-      <property name="text">
-       <string>Browser...</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QPushButton" name="odBrowseButton">
-      <property name="text">
-       <string>Browser...</string>
+       <string>母工程目录:</string>
       </property>
      </widget>
     </item>
@@ -110,6 +100,16 @@
      <widget class="QLabel" name="dataDirectoryLabel">
       <property name="text">
        <string>数据目录:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLineEdit" name="dataDirectoryEdit"/>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="ddBrowseButton">
+      <property name="text">
+       <string>Browser...</string>
       </property>
      </widget>
     </item>

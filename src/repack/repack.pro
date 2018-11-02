@@ -31,7 +31,8 @@ SOURCES += \
     preferences.cpp \
     startwidget.cpp \
     actionmanager.cpp \
-    id.cpp
+    id.cpp \
+    projectinfo.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     preferences.h \
     startwidget.h \
     actionmanager.h \
-    id.h
+    id.h \
+    projectinfo.h
 
 FORMS += \
         mainwindow.ui \
