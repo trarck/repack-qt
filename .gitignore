@@ -18,3 +18,4 @@ src/shotcut
 src/qml/export-edl/node_modules
 *.qmlc
 *.jsc
+*.DS_Store
