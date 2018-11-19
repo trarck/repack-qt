@@ -121,7 +121,7 @@ void MainWindow::createNewProject()
 {
     qDebug("call crate new");
     NewProjectDialog newProjectDialog(this);
-    newProjectDialog.createProject();
+    newProjectDialog.createProject(this);
 }
 
 void MainWindow::openProjectDialog()
@@ -138,4 +138,5 @@ void MainWindow::openProjectDialog()
 bool MainWindow::openProject(const QString &fileName)
 {
     qDebug("Open project file %s",fileName.data());
+    return true;
 }
